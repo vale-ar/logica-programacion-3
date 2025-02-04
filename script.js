@@ -21,10 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNaN(numero) || !Number.isInteger(numero)) {
             resultadoTexto.innerText = "Por favor, ingrese un número válido entero.";
             resultadoTexto.style.color = "red";
+            resultadoTexto.classList.add("mostrar");
+            resultadoTexto.classList.remove("glow");
+
+            setTimeout(() => {
+                resultadoTexto.innerText = "";
+            }, 3000);
+
+            return;
         } else {
             let resultado = calcularFactorial(numero);
             resultadoTexto.innerText = `El factorial de ${numero} es: ${resultado}`;
-            resultadoTexto.style.color = "black";
+            resultadoTexto.style.color = "#00FF00";
+            resultadoTexto.classList.add("glow", "mostrar");
         }
     });
 });

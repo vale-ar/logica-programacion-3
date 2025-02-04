@@ -1,33 +1,233 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #101010;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
 }
+
+.wave-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wave-text span {
+    display: inline-block;
+    font-size: 4rem;
+    margin: 2px;
+    padding-top: 40px;
+    animation: wave 2s ease-in-out infinite;
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.wave-text span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+.wave-text span:nth-child(6) {
+    animation-delay: 1s;
+}
+.wave-text span:nth-child(7) {
+    animation-delay: 1.2s;
+}
+.wave-text span:nth-child(8) {
+    animation-delay: 1.4s;
+}
+.wave-text span:nth-child(9) {
+    animation-delay: 1.6s;
+}
+.wave-text span:nth-child(10) {
+    animation-delay: 1.8s;
+}
+.wave-text span:nth-child(11) {
+    animation-delay: 2s;
+}
+.wave-text span:nth-child(12) {
+    animation-delay: 2.2s;
+}
+.wave-text span:nth-child(13) {
+    animation-delay: 2.4s;
+}
+.wave-text span:nth-child(14) {
+    animation-delay: 2.6s;
+}
+.wave-text span:nth-child(15) {
+    animation-delay: 2.8s;
+}
+.wave-text span:nth-child(16) {
+    animation-delay: 3s;
+}
+.wave-text span:nth-child(17) {
+    animation-delay: 3.2s;
+}
+.wave-text span:nth-child(18) {
+    animation-delay: 3.4s;
+}
+.wave-text span:nth-child(19) {
+    animation-delay: 3.6s;
+}
+.wave-text span:nth-child(20) {
+    animation-delay: 3.8s;
+}
+.wave-text span:nth-child(21) {
+    animation-delay: 4s;
+}
+
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 .container {
-    background: #f4f4f4;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
     border-radius: 10px;
     width: 300px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
+
 input {
-    width: 80%;
-    padding: 8px;
-    margin-top: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: rgba(225, 228, 232, 0.2) 0px 1px 0px 0px inset;
+    :focus{
+        border-color: #0366d6;
+        outline: none;
+        box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    }
+    
 }
 button {
     background: #007BFF;
+    width: 150px;
+    height: 40px;
+    font-size: medium;
+    font-weight: 600;
     color: white;
     border: none;
+    border-radius: 10px;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 30px;
     cursor: pointer;
 }
-button:hover {
-    background: #0056b3;
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
 }
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
 #resultado {
-    margin-top: 15px;
-    font-size: 18px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #00ff00;
+    margin-top: 30px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
 }
+
+#resultado.mostrar {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #00FF00; }
+    50% { text-shadow: 0 0 15px #00FF00, 0 0 25px #00FF00; }
+    100% { text-shadow: 0 0 5px #00FF00; }
+}
+
+#resultado.glow {
+    animation: glow 1s infinite alternate;
+}
+
+
